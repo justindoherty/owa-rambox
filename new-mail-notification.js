@@ -1,5 +1,5 @@
 setTimeout(() => {
-    const target = $("[title=Inbox]").first().next().next()[0];
+    const target = $("[title=Inbox]").first().next()[0];
 
     const unreadObserver = new MutationObserver(() => {
         updateBadge(target.textContent);
@@ -76,13 +76,7 @@ setTimeout(() => {
     }
 
     function updateBadge(count) {
-        document.title = document.title.replace(/^\(\d+\)/g, "");
-
-        if (count) {
-            document.title = `(${count}) ${document.title}`;
-        } else {
-            document.title = `(0) ${document.title}`;
-        }
+        document.title = `(${count}) ${document.title.replace(/^\(\d+\)/g, "")}`;
     }
 
     const popups = $("body > [ispopup=1]");
