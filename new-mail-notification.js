@@ -80,6 +80,8 @@ setTimeout(() => {
 
         if (count) {
             document.title = `(${count}) ${document.title}`;
+        } else {
+            document.title = `(0) ${document.title}`;
         }
     }
 
