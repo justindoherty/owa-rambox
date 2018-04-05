@@ -1,16 +1,12 @@
 setTimeout(() => {
-    const target = $("[title=Inbox]").first().next().next()[0];
+    const target = $("[title=Inbox]").first().next()[0];
 
     const observer = new MutationObserver(function() {
         updateBadge(target.textContent);
     });
 
     function updateBadge(count) {
-        document.title = document.title.replace(/^\(\d+\)/g, "");
-
-        if (count) {
-            document.title = `(${count}) ${document.title}`;
-        }
+        document.title = `(${count}) ${document.title.replace(/^\(\d+\)/g, "")}`;
     }
 
     updateBadge(target.textContent);
